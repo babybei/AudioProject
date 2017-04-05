@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>考拉屋音频列表</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<input type="hidden" value="0" id="isFirst">
+	<div class="container" id="container">
+		<div class="audio-tool">
+			<!-- 左侧 -->
+			<audio src=""></audio>
+			<div class="left-tool">
+				<ul class="play-btn">
+					<li class="prev player-prev">
+						<a class="audio-control wg-button" hidefocus="true" title="上一首">
+							<span class="wg-button-inner"></span>
+						</a>
+					</li>
+					<li id="play_btn" class="play wg-button stop" title="播放">
+						<span class="wg-button-inner">
+							<a hidefocus="true" class="player-play"></a>
+						</span>
+					</li>
+					<li id="push_btn" class="play wg-button push" style="display: none;" title="暂停">
+						<span class="wg-button-inner">
+							<a hidefocus="true" class="player-pause"></a>
+						</span>
+					</li>
+					<!-- 音频加载动画 -->
+					<li id="toolAnimation" class="play wg-button" style="display:none;">
+						<div id="outer">
+							<div id="load_left"><span></span></div>
+							<div id="load_right"><span></span></div>
+							<div id="inner"></div>
+						</div>
+					</li>
+					<li class="next player-next">
+						<a class="audio-control wg-button" hidefocus="true" title="下一首">
+							<span class="wg-button-inner"></span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- 右侧 -->
+			<div class="right-panel">
+				<div class="volume" id="volumeWrap">
+					<a class="mute wg-button" style="display:none;" hidefocus="true" title="静音">
+						<span class="wg-button-inner"></span>
+					</a>
+					<a class="muted wg-button" style="display:none;" hidefocus="true" title="静音">
+						<span class="wg-button-inner"></span>
+					</a>
+					<div class="vol-slider-wrapper">
+						<div id="volSlider">
+							<div class="ui-slider-range" style="width:0%; overflow:hidden;">
+								<span class="ui-slider-range-inner"></span>
+							</div>
+							<a class="ui-slider-handle" hidefocus="true" style="left:0%;"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 中间 -->
+			<div class="main-panel">
+				<div class="pane">
+					<time class="time player-current-time">3:36</time>
+					<time class="time player-duration-time">5:32</time>
+					<div class="progress-wrapper" id="progress_bar">
+						<div id="progressSlider" class="ui-slider-horizontal">
+							<!-- 加载进度 -->
+							<div class="player-progress-loaded"></div>
+							<div class="ui-slider-range player-progress-position"></div>
+							<a class="ui-slider-handle player-progress-control" hidefocus="true"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<section class="section">
+			<div class="audiolist">
+				<div class="row">
+					<div class="col-md-11">音频名称</div>
+					<div class="col-md-1 text-center">操作</div>
+				</div>
+				<div class="row section-item" id="section111">
+					<div class="col-md-11">
+						<i class="playing"></i>
+						<span>王菲-笑忘书 2015</span>
+						<input type="hidden" value="song/2.mp3" name="source">
+						<input type="hidden" value="111" name="sectionid">
+					</div>
+					<div class="col-md-1">
+						<div class="audio-control player-list"></div>
+						<div class="audio-control pause-list"></div>
+					</div>
+				</div>
+				<div class="row section-item" id="section222">
+					<div class="col-md-11">
+						<i class="playing"></i>
+						<span>李逸朗-化身孤岛的鲸 2015</span>
+						<input type="hidden" value="song/1.mp3" name="source">
+						<input type="hidden" value="222" name="sectionid">
+					</div>
+					<div class="col-md-1">
+						<div class="audio-control player-list"></div>
+						<div class="audio-control pause-list"></div>
+					</div>
+				</div>
+				<div class="row section-item" id="section333">
+					<div class="col-md-11">
+						<i class="playing"></i>
+						<span>蔡健雅-被驯服的象 2015</span>
+						<input type="hidden" value="song/3.mp3" name="source">
+						<input type="hidden" value="333" name="sectionid">
+					</div>
+					<div class="col-md-1">
+						<div class="audio-control player-list"></div>
+						<div class="audio-control pause-list"></div>
+					</div>
+				</div>
+				<div class="row section-item" id="section444">
+					<div class="col-md-11">
+						<i class="playing"></i>
+						<span>王菲-笑忘书 2016</span>
+						<input type="hidden" value="song/2.mp3" name="source">
+						<input type="hidden" value="444" name="sectionid">
+					</div>
+					<div class="col-md-1">
+						<div class="audio-control player-list"></div>
+						<div class="audio-control pause-list"></div>
+					</div>
+				</div>
+				<div class="row section-item" id="section555">
+					<div class="col-md-11">
+						<i class="playing"></i>
+						<span>李逸朗-化身孤岛的鲸 2016</span>
+						<input type="hidden" value="song/1.mp3" name="source">
+						<input type="hidden" value="555" name="sectionid">
+					</div>
+					<div class="col-md-1">
+						<div class="audio-control player-list"></div>
+						<div class="audio-control pause-list"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/audio.min.js"></script>
+	<script type="text/javascript" src="js/player.js"></script>
+</body>
+</html>
